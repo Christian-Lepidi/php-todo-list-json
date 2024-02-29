@@ -4,13 +4,22 @@ const app = createApp({
   data() {
     return {
       title: "Todo List",
-      todoList: [
-        "Fare la spesa",
-        "Cambiare filtro olio",
-        "Andare in palestra",
-        "Portare fuori il cane",
-      ],
+      todoList: [],
     };
+  },
+
+  methods: {
+    fetchTodoList() {
+      axios
+        .get("http://localhost/php-todo-list-json/backend/api/get-list.php")
+        .then((response) => {
+          this.todoList = response.data;
+        });
+    },
+  },
+
+  mounted() {
+    this.fetchTodoList();
   },
 });
 
