@@ -5,6 +5,10 @@ const app = createApp({
     return {
       title: "Todo List",
       todoList: [],
+      newMust: {
+        text: "",
+        done: false,
+      },
     };
   },
 
@@ -13,6 +17,24 @@ const app = createApp({
       axios.get("../backend/api/get-list.php").then((response) => {
         this.todoList = response.data;
       });
+    },
+
+    fetchAddMust() {
+      const data = {
+        text: this.newMust.text,
+        done: false,
+      };
+      const param = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      axios
+        .post("../backend/api/store-must.php", data, param)
+        .then((response) => {
+          this.newMust = response.data;
+        });
     },
   },
 

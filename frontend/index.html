@@ -18,7 +18,29 @@
   <body>
     <div id="app">
       <h1 class="text-center text-danger mb-4">{{title}}</h1>
-
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <div class="input-group mb-3">
+            <input
+              v-model="newMust.text"
+              @keyUp.enter="fetchAddMust()"
+              type="text"
+              class="form-control"
+              placeholder="must to do"
+              aria-label="must to do"
+              aria-describedby="button-add-must-to-do"
+            />
+            <button
+              @click="fetchAddMust()"
+              class="btn btn-success"
+              type="button"
+              id="button-addon2"
+            >
+              Aggiungi
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="d-flex justify-content-center">
         <div class="card mt-3">
           <div class="card-header text-center">Must to do</div>
