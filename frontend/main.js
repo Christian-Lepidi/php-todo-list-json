@@ -10,11 +10,9 @@ const app = createApp({
 
   methods: {
     fetchTodoList() {
-      axios
-        .get("http://localhost/php-todo-list-json/backend/api/get-list.php")
-        .then((response) => {
-          this.todoList = response.data;
-        });
+      axios.get("../backend/api/get-list.php").then((response) => {
+        this.todoList = response.data;
+      });
     },
   },
 
