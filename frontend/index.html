@@ -23,7 +23,9 @@
         <div class="card mt-3">
           <div class="card-header text-center">Must to do</div>
           <ul class="list-group list-group-flush">
-            <li v-for="must in todoList" class="list-group-item">{{must}}</li>
+            <li v-for="must in todoList" class="list-group-item">
+              {{must.text}}
+            </li>
           </ul>
         </div>
       </div>
