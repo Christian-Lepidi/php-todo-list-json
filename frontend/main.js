@@ -33,7 +33,7 @@ const app = createApp({
       axios
         .post("../backend/api/store-must.php", data, param)
         .then((response) => {
-          this.newMust = response.data;
+          this.todoList = response.data;
         });
     },
   },
